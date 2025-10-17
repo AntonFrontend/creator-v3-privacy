@@ -1,0 +1,73 @@
+Русская версия (рекомендуется как основная, если аудитория RU):
+
+Заголовок: Политика конфиденциальности расширения “Creator V3”
+
+Общие положения
+Это расширение для Google Chrome (“Расширение”) предназначено исключительно для интеграции Zabbix → Creatio и автоматического заполнения формы создания инцидента по действию пользователя.
+
+Обработка данных
+Расширение не собирает, не передаёт и не продаёт персональные данные пользователям или третьим лицам. Расширение не отправляет данные на сторонние серверы разработчика.
+
+Локальное хранилище
+Расширение использует локальное хранилище браузера (chrome.storage.local) для временного сохранения состояния UI попапа (выбор вкладок, радиокнопок, селекторов и текстовых полей) до момента нажатия пользователем кнопки «Создать». Эти значения:
+
+не покидают устройство пользователя;
+очищаются при нажатии «Создать» async function clearState().
+Разрешения браузера Расширение запрашивает только минимально необходимые разрешения:
+activeTab/tabs: открытие целевой страницы Creatio и запуск сценария автозаполнения async function openUrlAndExecuteScript(url, scriptData).
+contextMenus: пункт контекстного меню в Zabbix для запуска создания инцидента chrome.contextMenus.create().
+host_permissions: ограничено доменами Zabbix/Creatio (например, https://prz-zabbix.npr.nornick.ru/, https://creatio.nornik.ru/) для чтения параметров проблемы и открытия формы.
+notifications: показ нативных уведомлений статуса (успех/ошибка) без рекламы.
+scripting: инъекция скрипта автозаполнения строго по действию пользователя injected-script.js, content.js.
+storage: локальное сохранение состояния UI (см. п.3).
+Запрет удалённого исполняемого кода
+Расширение соответствует требованиям Manifest V3 и не использует удалённо загружаемый исполняемый код; нет eval/Function; все скрипты локальные manifest.json.
+
+Дети и чувствительные данные
+Расширение не предназначено для использования детьми, не обрабатывает финансовые, медицинские или аутентификационные данные, не ведёт историю веб‑просмотров и не осуществляет мониторинг активности пользователя.
+
+Безопасность
+Расширение работает в пределах текущей вкладки/целевых доменов, не сохраняет секреты и использует минимальный набор разрешений. Данные локального UI очищаются на «Создать».
+
+Изменения политики
+Мы можем обновлять данную политику при изменении функциональности расширения. Актуальная версия доступна по ссылке данной страницы.
+
+Контакты
+По вопросам конфиденциальности пишите на: <woodmand258@gmail.com>.
+
+English version:
+
+Title: Privacy Policy for “Creator V3” Chrome Extension
+
+Purpose
+This Chrome extension (“Extension”) is solely intended to integrate Zabbix with Creatio and auto‑fill the incident creation form upon explicit user action.
+
+Data Handling
+The Extension does not collect, transmit, or sell any personal data to the developer or third parties. No data is sent to external developer‑controlled servers.
+
+Local Storage
+The Extension uses chrome.storage.local to temporarily store popup UI state (tab, radio, select, text fields) until the user clicks “Create”. These values:
+
+never leave the user’s device;
+are cleared when the user clicks “Create” async function clearState().
+Browser Permissions (Minimal Use)
+activeTab/tabs: open Creatio and run auto‑fill async function openUrlAndExecuteScript(url, scriptData).
+contextMenus: add a Zabbix context menu item to trigger incident creation chrome.contextMenus.create().
+host_permissions: limited to Zabbix/Creatio domains (e.g., https://prz-zabbix.npr.nornick.ru/, https://creatio.nornik.ru/) to read problem parameters and open the form.
+notifications: show native status notifications (success/error), without ads.
+scripting: inject auto‑fill script strictly upon user action injected-script.js, content.js.
+storage: local UI state only (see section 3).
+No Remote Code
+The Extension complies with Manifest V3 requirements and does not use remotely served executable code; no eval/Function; all scripts are local manifest.json.
+
+Children & Sensitive Data
+The Extension is not aimed at children and does not process financial, medical, authentication data, browsing history, or user activity logging.
+
+Security
+Operates within the current tab/target domains, uses minimal permissions, and clears local UI state on “Create”.
+
+Changes
+We may update this policy as functionality changes. The latest version is always available via this page URL.
+
+Contact
+For privacy inquiries: <woodmand258@gmail.com>.
